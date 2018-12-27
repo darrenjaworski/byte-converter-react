@@ -1,0 +1,26 @@
+{
+  "name": "byte-converter",
+  "version": "1.0.0",
+  "description": "React component to convert memory sizes between units.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrenjaworski/byte-converter-react.git"
+  },
+  "keywords": [
+    "react",
+    "component"
+  ],
+  "author": "Darren Jaworski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darrenjaworski/byte-converter-react/issues"
+  },
+  "homepage": "https://github.com/darrenjaworski/byte-converter-react#readme",
+  "dependencies": {
+    "react": "^16.7.0"
+  }
+}
