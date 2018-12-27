@@ -21,7 +21,7 @@ const unitSuffix = {
 };
 
 const ByteConverter = props => {
-  const { children, hideWarnings, suffix, inUnit, outUnit } = props;
+  const { children, hideWarnings, suffix, addCommas, inUnit, outUnit } = props;
 
   const isInteger = Number.isInteger(children);
   const isFinite = Number.isFinite(children);
@@ -41,8 +41,12 @@ const ByteConverter = props => {
     }
   }
 
-  const conversion =
+  let conversion =
     children * conversionFactor[inUnit] * (1 / conversionFactor[outUnit]);
+
+  if (addCommas) {
+    conversion = conversion.toLocaleString();
+  }
 
   const suffixDisplay = suffix
     ? ` ${unitSuffix[outUnit]}${conversion === 1 ? "" : "s"}`
@@ -61,7 +65,7 @@ ByteConverter.propTypes = {
   hideWarnings: PropTypes.bool,
   // useSI: PropTypes.bool,
   suffix: PropTypes.bool,
-  // addCommas: PropTypes.bool,
+  addCommas: PropTypes.bool,
   inUnit: PropTypes.oneOf(units),
   outUnit: PropTypes.oneOf(units)
 };
@@ -70,7 +74,7 @@ ByteConverter.defaultProps = {
   hideWarnings: false,
   // useSI: false,
   suffix: false,
-  // addCommas: false,
+  addCommas: false,
   inUnit: units[0],
   outUnit: units[2]
 };
