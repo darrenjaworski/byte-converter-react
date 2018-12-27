@@ -15,6 +15,7 @@ Available props:
 - suffix, boolean to turn on/off suffix. AKA unit written after the converted number. false by default
 - inUnit, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. B for bytes by default.
 - outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. MB for megabytes by default.
+- addCommas, will convert to locale string, 1,000,000 etc.
 
 Usage:
 
@@ -39,5 +40,4 @@ export default App;
 ## upcoming features
 
 - useSI prop (SI decimal units instead of binary notation)
-- formatting prop (1,000)
 - support for bits
