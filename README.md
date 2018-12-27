@@ -12,6 +12,7 @@ Available props:
 
 - children, is required and must be a positive, finite, integer.
 - hideWarnings, boolean to turn on/off warnings. false by default
+- suffix, boolean to turn on/off suffix. AKA unit written after the converted number. false by default
 - inUnit, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. B for bytes by default.
 - outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. MB for bytes by default.
 
@@ -38,6 +39,5 @@ export default App;
 ## upcoming features
 
 - useSI prop (SI decimal units instead of binary notation)
-- suffix prop (1 kilobyte, etc)
 - formatting prop (1,000)
 - support for bits
