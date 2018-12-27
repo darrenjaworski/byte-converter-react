@@ -14,7 +14,7 @@ Available props:
 - hideWarnings, boolean to turn on/off warnings. false by default
 - suffix, boolean to turn on/off suffix. AKA unit written after the converted number. false by default
 - inUnit, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. B for bytes by default.
-- outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. MB for bytes by default.
+- outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. MB for megabytes by default.
 
 Usage:
 
