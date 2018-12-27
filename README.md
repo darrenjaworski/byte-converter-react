@@ -13,7 +13,7 @@ Available props:
 - children, is required and must be a positive, finite, integer.
 - hideWarnings, boolean to turn on/off warnings. false by default
 - inUnit, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. B for bytes by default.
-- outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. B for bytes by default.
+- outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. MB for bytes by default.
 
 Usage:
 
@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ByteConverter hideWarnings>1073741824</ByteConverter>
+        <ByteConverter>1073741824</ByteConverter>
       </div>
     );
   }
@@ -40,3 +40,4 @@ export default App;
 - useSI prop (SI decimal units instead of binary notation)
 - suffix prop (1 kilobyte, etc)
 - formatting prop (1,000)
+- support for bits
