@@ -2,7 +2,7 @@
   "name": "byte-converter",
   "version": "1.0.0",
   "description": "React component to convert memory sizes between units.",
-  "main": "index.js",
+  "main": "./build/byteConverter.js",
   "scripts": {
     "test": "test"
   },
@@ -27,15 +27,22 @@
   },
   "homepage": "https://github.com/darrenjaworski/byte-converter-react#readme",
   "dependencies": {
-    "react": "^16.7.0"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
   }
 }
