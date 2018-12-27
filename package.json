@@ -6,6 +6,9 @@
   "scripts": {
     "test": "test"
   },
+  "eslintConfig": {
+    "extends": "airbnb"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/darrenjaworski/byte-converter-react.git"
@@ -22,5 +25,13 @@
   "homepage": "https://github.com/darrenjaworski/byte-converter-react#readme",
   "dependencies": {
     "react": "^16.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "prop-types": "^15.6.2"
   }
 }
