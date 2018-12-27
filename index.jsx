@@ -11,9 +11,17 @@ const conversionFactor = {
   TB: 2 ** 80,
   PB: 2 ** 160
 };
+const unitSuffix = {
+  B: "byte",
+  KB: "kilobyte",
+  MB: "megabyte",
+  GB: "gigabyte",
+  TB: "terabyte",
+  PB: "petabyte"
+};
 
 const ByteConverter = props => {
-  const { children, hideWarnings, inUnit, outUnit } = props;
+  const { children, hideWarnings, suffix, inUnit, outUnit } = props;
 
   const isInteger = Number.isInteger(children);
   const isFinite = Number.isFinite(children);
@@ -36,13 +44,24 @@ const ByteConverter = props => {
   const conversion =
     children * conversionFactor[inUnit] * (1 / conversionFactor[outUnit]);
 
-  return <>{conversion}</>;
+  const suffixDisplay = suffix
+    ? ` ${unitSuffix[outUnit]}${conversion === 1 ? "" : "s"}`
+    : null;
+
+  return (
+    <>
+      {conversion}
+      {suffixDisplay}
+    </>
+  );
 };
 
 ByteConverter.propTypes = {
   children: PropTypes.number.isRequired,
   hideWarnings: PropTypes.bool,
   // useSI: PropTypes.bool,
+  suffix: PropTypes.bool,
+  // addCommas: PropTypes.bool,
   inUnit: PropTypes.oneOf(units),
   outUnit: PropTypes.oneOf(units)
 };
@@ -50,6 +69,8 @@ ByteConverter.propTypes = {
 ByteConverter.defaultProps = {
   hideWarnings: false,
   // useSI: false,
+  suffix: false,
+  // addCommas: false,
   inUnit: units[0],
   outUnit: units[2]
 };
