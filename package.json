@@ -1,6 +1,6 @@
 {
   "name": "byte-converter-react",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "React component to convert memory sizes between units.",
   "main": "./build/byteConverter.js",
   "scripts": {

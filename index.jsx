@@ -43,6 +43,8 @@ ByteConverter.propTypes = {
   children: PropTypes.number.isRequired,
   hideWarnings: PropTypes.bool,
   // useSI: PropTypes.bool,
+  // suffix: PropTypes.bool,
+  // addCommas: PropTypes.bool,
   inUnit: PropTypes.oneOf(units),
   outUnit: PropTypes.oneOf(units)
 };
@@ -50,6 +52,8 @@ ByteConverter.propTypes = {
 ByteConverter.defaultProps = {
   hideWarnings: false,
   // useSI: false,
+  // suffix: false,
+  // addCommas: false,
   inUnit: units[0],
   outUnit: units[2]
 };
