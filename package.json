@@ -1,10 +1,11 @@
 {
-  "name": "byte-converter",
-  "version": "1.0.0",
+  "name": "byte-converter-react",
+  "version": "0.1.0",
   "description": "React component to convert memory sizes between units.",
   "main": "./build/byteConverter.js",
   "scripts": {
     "test": "test",
+    "prebuild": "rm -rf build",
     "build": "webpack"
   },
   "eslintConfig": {

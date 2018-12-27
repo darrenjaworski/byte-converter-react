@@ -13,7 +13,7 @@ const conversionFactor = {
 };
 
 const ByteConverter = props => {
-  const { children, hideWarnings, useSI, inUnit, outUnit } = props;
+  const { children, hideWarnings, inUnit, outUnit } = props;
 
   const isInteger = Number.isInteger(children);
   const isFinite = Number.isFinite(children);
@@ -42,14 +42,14 @@ const ByteConverter = props => {
 ByteConverter.propTypes = {
   children: PropTypes.number.isRequired,
   hideWarnings: PropTypes.bool,
-  useSI: PropTypes.bool,
+  // useSI: PropTypes.bool,
   inUnit: PropTypes.oneOf(units),
   outUnit: PropTypes.oneOf(units)
 };
 
 ByteConverter.defaultProps = {
   hideWarnings: false,
-  useSI: false,
+  // useSI: false,
   inUnit: units[0],
   outUnit: units[2]
 };
