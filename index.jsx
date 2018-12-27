@@ -1,48 +1,57 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
-const units = ["b", "B", "KB", "MB", "GB", "TB", "PB"];
-const mapUnitsToPower = {
-  B: 0,
-  KB: 1,
-  MB: 2,
-  GB: 3,
-  TB: 4,
-  PB: 5
+const units = ["B", "KB", "MB", "GB", "TB", "PB"];
+const conversionFactor = {
+  B: 1,
+  KB: 2 ** 10,
+  MB: 2 ** 20,
+  GB: 2 ** 40,
+  TB: 2 ** 80,
+  PB: 2 ** 160
 };
 
 const ByteConverter = props => {
   const { children, hideWarnings, useSI, inUnit, outUnit } = props;
 
-  // warn if children is integer or negative
+  const isInteger = Number.isInteger(children);
+  const isFinite = Number.isFinite(children);
+  const isPositive = children > 0;
 
-  return <>{children}</>;
+  if (!hideWarnings) {
+    if (!isInteger) {
+      console.warn("ByteConverter must recieve an integer as a child.");
+    }
+
+    if (!isFinite) {
+      console.warn("ByteConverter must recieve a finite integer as a child");
+    }
+
+    if (!isPositive) {
+      console.warn("ByteConverter must recieve a positive integer as a child");
+    }
+  }
+
+  const conversion =
+    children * conversionFactor[inUnit] * (1 / conversionFactor[outUnit]);
+
+  return <>{conversion}</>;
 };
 
 ByteConverter.propTypes = {
-  children: propTypes.number.isRequired,
-  hideWarnings: propTypes.bool,
-  useSI: propTypes.bool,
-  inUnit: propTypes.oneOf(units),
-  outUnit: propTypes.oneOf(units)
+  children: PropTypes.number.isRequired,
+  hideWarnings: PropTypes.bool,
+  useSI: PropTypes.bool,
+  inUnit: PropTypes.oneOf(units),
+  outUnit: PropTypes.oneOf(units)
 };
 
 ByteConverter.defaultProps = {
   hideWarnings: false,
   useSI: false,
-  inUnit: units[1],
-  outUnit: units[3]
+  inUnit: units[0],
+  outUnit: units[2]
 };
 
 export default ByteConverter;
-
-// - Children should always be a number. Warn on negative and noninteger values.  Suppress warnings with a prop.
-
-// - Ability to specify input units (default "B" for bytes)
-
-// - Ability to specify output units. Default "*iB" for auto-binary-prefixed Bytes.
-
-// Let's say for some reason I have total bits and I want to output as auto-metric-prefixed Bytes:
-
-// inUnits="b"
-// outUnits="*B"
