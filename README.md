@@ -16,6 +16,7 @@ Available props:
 - inUnit, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. B for bytes by default.
 - outUnit, one of ["B", "KB", "MB", "GB", "TB", "PB"]. MB for megabytes by default.
 - addCommas, will convert to locale string, 1,000,000 etc.
+- useSI, will use decimal notation instead of binary, false by default.
 
 Usage:
 
@@ -39,5 +40,4 @@ export default App;
 
 ## upcoming features
 
-- useSI prop (SI decimal units instead of binary notation)
 - support for bits
