@@ -4,12 +4,22 @@ import PropTypes from "prop-types";
 
 const units = ["B", "KB", "MB", "GB", "TB", "PB"];
 const conversionFactor = {
-  B: 1,
-  KB: 2 ** 10,
-  MB: 2 ** 20,
-  GB: 2 ** 40,
-  TB: 2 ** 80,
-  PB: 2 ** 160
+  decimal: {
+    B: 1,
+    KB: 1000,
+    MB: 1000 ** 2,
+    GB: 1000 ** 3,
+    TB: 1000 ** 4,
+    PB: 1000 ** 5
+  },
+  binary: {
+    B: 1,
+    KB: 1024,
+    MB: 1024 ** 2,
+    GB: 1024 ** 3,
+    TB: 1024 ** 4,
+    PB: 1024 ** 5
+  }
 };
 const unitSuffix = {
   B: "byte",
@@ -21,7 +31,15 @@ const unitSuffix = {
 };
 
 const ByteConverter = props => {
-  const { children, hideWarnings, suffix, addCommas, inUnit, outUnit } = props;
+  const {
+    children,
+    hideWarnings,
+    suffix,
+    addCommas,
+    useSI,
+    inUnit,
+    outUnit
+  } = props;
 
   const isInteger = Number.isInteger(children);
   const isFinite = Number.isFinite(children);
@@ -41,8 +59,14 @@ const ByteConverter = props => {
     }
   }
 
-  let conversion =
-    children * conversionFactor[inUnit] * (1 / conversionFactor[outUnit]);
+  const InConversion = useSI
+    ? conversionFactor.decimal[inUnit]
+    : conversionFactor.binary[inUnit];
+  const OutConversion = useSI
+    ? conversionFactor.decimal[outUnit]
+    : conversionFactor.binary[outUnit];
+
+  let conversion = children * InConversion * (1 / OutConversion);
 
   if (addCommas) {
     conversion = conversion.toLocaleString();
@@ -63,7 +87,7 @@ const ByteConverter = props => {
 ByteConverter.propTypes = {
   children: PropTypes.number.isRequired,
   hideWarnings: PropTypes.bool,
-  // useSI: PropTypes.bool,
+  useSI: PropTypes.bool,
   suffix: PropTypes.bool,
   addCommas: PropTypes.bool,
   inUnit: PropTypes.oneOf(units),
@@ -72,7 +96,7 @@ ByteConverter.propTypes = {
 
 ByteConverter.defaultProps = {
   hideWarnings: false,
-  // useSI: false,
+  useSI: false,
   suffix: false,
   addCommas: false,
   inUnit: units[0],
