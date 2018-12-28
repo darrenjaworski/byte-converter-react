@@ -25,6 +25,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- useSI
+
+### Fixed
+
+- conversion factor fixes
+
+## [0.3.0] - 2018-12-27
+
+### Added
+
 - addCommas
 
 ## [0.2.3] - 2018-12-26
