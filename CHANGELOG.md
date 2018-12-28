@@ -17,11 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- conversion factor fixes
-
 ### Security
 
-## [0.3.0] - 2018-12-27
+## [0.3.1] - 2018-12-27
 
 ### Added
 
