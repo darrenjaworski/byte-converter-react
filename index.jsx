@@ -4,22 +4,12 @@ import PropTypes from "prop-types";
 
 const units = ["B", "KB", "MB", "GB", "TB", "PB"];
 const conversionFactor = {
-  decimal: {
-    B: 1,
-    KB: 1000,
-    MB: 1000 ** 2,
-    GB: 1000 ** 3,
-    TB: 1000 ** 4,
-    PB: 1000 ** 5
-  },
-  binary: {
-    B: 1,
-    KB: 1024,
-    MB: 1024 ** 2,
-    GB: 1024 ** 3,
-    TB: 1024 ** 4,
-    PB: 1024 ** 5
-  }
+  B: 0,
+  KB: 1,
+  MB: 2,
+  GB: 3,
+  TB: 4,
+  PB: 5
 };
 const unitSuffix = {
   B: "byte",
@@ -58,15 +48,14 @@ const ByteConverter = props => {
       console.warn("ByteConverter must recieve a positive integer as a child");
     }
   }
-
   const InConversion = useSI
-    ? conversionFactor.decimal[inUnit]
-    : conversionFactor.binary[inUnit];
+    ? 1000 ** conversionFactor[inUnit]
+    : 1024 ** conversionFactor[inUnit];
   const OutConversion = useSI
-    ? conversionFactor.decimal[outUnit]
-    : conversionFactor.binary[outUnit];
+    ? 1000 ** conversionFactor[outUnit]
+    : 1024 ** conversionFactor[outUnit];
 
-  let conversion = children * InConversion * (1 / OutConversion);
+  let conversion = (children * InConversion) / OutConversion;
 
   if (addCommas) {
     conversion = conversion.toLocaleString();
