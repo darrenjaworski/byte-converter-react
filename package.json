@@ -4,7 +4,7 @@
   "description": "A small React component to convert between data sizes.",
   "main": "./build/byteConverter.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "prebuild": "rm -rf build",
     "build": "webpack",
     "prepublish": "npm run build"
@@ -13,7 +13,13 @@
     "extends": [
       "airbnb",
       "prettier"
-    ]
+    ],
+    "plugins": [
+      "jest"
+    ],
+    "env": {
+      "jest/globals": true
+    }
   },
   "files": [
     "build"
@@ -41,13 +47,19 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "react-test-renderer": "^16.7.0",
+    "regenerator-runtime": "^0.13.1",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2"
   }
