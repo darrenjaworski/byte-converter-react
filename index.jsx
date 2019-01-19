@@ -31,23 +31,26 @@ const ByteConverter = props => {
     outUnit
   } = props;
 
-  const isInteger = Number.isInteger(children);
-  const isFinite = Number.isFinite(children);
-  const isPositive = children > 0;
+  const kiddo = Number(children);
+
+  const isInteger = Number.isInteger(kiddo);
+  const isFinite = Number.isFinite(kiddo);
+  const isPositive = kiddo > 0;
 
   if (!hideWarnings) {
     if (!isInteger) {
-      console.warn("ByteConverter must recieve an integer as a child.");
+      console.warn("ByteConverter must recieve an integer as a child."); // eslint-disable-line no-console
     }
 
     if (!isFinite) {
-      console.warn("ByteConverter must recieve a finite integer as a child");
+      console.warn("ByteConverter must recieve a finite integer as a child"); // eslint-disable-line no-console
     }
 
     if (!isPositive) {
-      console.warn("ByteConverter must recieve a positive integer as a child");
+      console.warn("ByteConverter must recieve a positive integer as a child"); // eslint-disable-line no-console
     }
   }
+
   const InConversion = useSI
     ? 1000 ** conversionFactor[inUnit]
     : 1024 ** conversionFactor[inUnit];
@@ -74,7 +77,8 @@ const ByteConverter = props => {
 };
 
 ByteConverter.propTypes = {
-  children: PropTypes.number.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   hideWarnings: PropTypes.bool,
   useSI: PropTypes.bool,
   suffix: PropTypes.bool,
