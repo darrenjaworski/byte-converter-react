@@ -11,8 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- optimized conversion logic
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +18,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 ### Security
+
+## [1.0.1]
+
+### Changed
+
+- optimized conversion logic
+
+### Fixed
+
+- added clarity to documentation
 
 ## [1.0.0] - 2018-12-27
 
