@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ByteConverter inUnit B, outUnit B matches snapshot 1`] = `"1024"`;
+
+exports[`ByteConverter inUnit B, outUnit GB matches snapshot 1`] = `"9.5367431640625e-7"`;
+
+exports[`ByteConverter inUnit B, outUnit KB matches snapshot 1`] = `"1"`;
+
+exports[`ByteConverter inUnit B, outUnit MB matches snapshot 1`] = `"0.0009765625"`;
+
+exports[`ByteConverter inUnit B, outUnit PB matches snapshot 1`] = `"9.094947017729282e-13"`;
+
+exports[`ByteConverter inUnit B, outUnit TB matches snapshot 1`] = `"9.313225746154785e-10"`;
+
+exports[`ByteConverter inUnit GB, outUnit B matches snapshot 1`] = `"1099511627776"`;
+
+exports[`ByteConverter inUnit GB, outUnit GB matches snapshot 1`] = `"1024"`;
+
+exports[`ByteConverter inUnit GB, outUnit KB matches snapshot 1`] = `"1073741824"`;
+
+exports[`ByteConverter inUnit GB, outUnit MB matches snapshot 1`] = `"1048576"`;
+
+exports[`ByteConverter inUnit GB, outUnit PB matches snapshot 1`] = `"0.0009765625"`;
+
+exports[`ByteConverter inUnit GB, outUnit TB matches snapshot 1`] = `"1"`;
+
+exports[`ByteConverter inUnit KB, outUnit B matches snapshot 1`] = `"1048576"`;
+
+exports[`ByteConverter inUnit KB, outUnit GB matches snapshot 1`] = `"0.0009765625"`;
+
+exports[`ByteConverter inUnit KB, outUnit KB matches snapshot 1`] = `"1024"`;
+
+exports[`ByteConverter inUnit KB, outUnit MB matches snapshot 1`] = `"1"`;
+
+exports[`ByteConverter inUnit KB, outUnit PB matches snapshot 1`] = `"9.313225746154785e-10"`;
+
+exports[`ByteConverter inUnit KB, outUnit TB matches snapshot 1`] = `"9.5367431640625e-7"`;
+
+exports[`ByteConverter inUnit MB, outUnit B matches snapshot 1`] = `"1073741824"`;
+
+exports[`ByteConverter inUnit MB, outUnit GB matches snapshot 1`] = `"1"`;
+
+exports[`ByteConverter inUnit MB, outUnit KB matches snapshot 1`] = `"1048576"`;
+
+exports[`ByteConverter inUnit MB, outUnit MB matches snapshot 1`] = `"1024"`;
+
+exports[`ByteConverter inUnit MB, outUnit PB matches snapshot 1`] = `"9.5367431640625e-7"`;
+
+exports[`ByteConverter inUnit MB, outUnit TB matches snapshot 1`] = `"0.0009765625"`;
+
+exports[`ByteConverter inUnit PB, outUnit B matches snapshot 1`] = `"1152921504606847000"`;
+
+exports[`ByteConverter inUnit PB, outUnit GB matches snapshot 1`] = `"1073741824"`;
+
+exports[`ByteConverter inUnit PB, outUnit KB matches snapshot 1`] = `"1125899906842624"`;
+
+exports[`ByteConverter inUnit PB, outUnit MB matches snapshot 1`] = `"1099511627776"`;
+
+exports[`ByteConverter inUnit PB, outUnit PB matches snapshot 1`] = `"1024"`;
+
+exports[`ByteConverter inUnit PB, outUnit TB matches snapshot 1`] = `"1048576"`;
+
+exports[`ByteConverter inUnit TB, outUnit B matches snapshot 1`] = `"1125899906842624"`;
+
+exports[`ByteConverter inUnit TB, outUnit GB matches snapshot 1`] = `"1048576"`;
+
+exports[`ByteConverter inUnit TB, outUnit KB matches snapshot 1`] = `"1099511627776"`;
+
+exports[`ByteConverter inUnit TB, outUnit MB matches snapshot 1`] = `"1073741824"`;
+
+exports[`ByteConverter inUnit TB, outUnit PB matches snapshot 1`] = `"1"`;
+
+exports[`ByteConverter inUnit TB, outUnit TB matches snapshot 1`] = `"1024"`;
+
+exports[`ByteConverter renders without crashing 1`] = `"0.0009765625"`;
