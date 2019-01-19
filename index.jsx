@@ -58,7 +58,7 @@ const ByteConverter = props => {
     ? 1000 ** conversionFactor[outUnit]
     : 1024 ** conversionFactor[outUnit];
 
-  let conversion = (children * InConversion) / OutConversion;
+  let conversion = (kiddo * InConversion) / OutConversion;
 
   if (addCommas) {
     conversion = conversion.toLocaleString();

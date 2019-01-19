@@ -5,9 +5,11 @@
   "main": "./build/byteConverter.js",
   "scripts": {
     "test": "jest",
-    "prebuild": "rm -rf build",
+    "clean": "rm -rf build",
+    "prebuild": "npm run test",
     "build": "webpack",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build",
+    "gamut": "npm run clean && npm install && npm run build"
   },
   "eslintConfig": {
     "extends": [
