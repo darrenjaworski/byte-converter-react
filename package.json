@@ -34,7 +34,7 @@
     "react",
     "component"
   ],
-  "author": "Darren Jaworski",
+  "author": "Darren Jaworski <darrenjaworski@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/darrenjaworski/byte-converter-react/issues"
