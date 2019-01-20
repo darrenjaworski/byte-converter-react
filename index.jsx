@@ -24,9 +24,9 @@ const ByteConverter = props => {
   const {
     children,
     hideWarnings,
+    useSI,
     suffix,
     addCommas,
-    useSI,
     inUnit,
     outUnit
   } = props;
