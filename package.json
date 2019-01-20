@@ -1,6 +1,6 @@
 {
   "name": "byte-converter-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small React component to convert between data sizes.",
   "main": "./build/byteConverter.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "react",
     "component"
   ],
-  "author": "Darren Jaworski",
+  "author": "Darren Jaworski <darrenjaworski@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/darrenjaworski/byte-converter-react/issues"

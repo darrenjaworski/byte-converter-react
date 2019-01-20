@@ -87,4 +87,51 @@ describe("ByteConverter", () => {
       expect(resultSuffix.trim()).toBe(`${suffixString}s`);
     });
   });
+
+  it("should have a singular suffix when exactly one is resulting", () => {
+    const result = renderer
+      .create(
+        <ByteConverter suffix inUnit="KB">
+          {1024}
+        </ByteConverter>
+      )
+      .toJSON();
+
+    const resultSuffix = result[1];
+    expect(resultSuffix.trim()).toBe("megabyte");
+  });
+
+  it("should warn with an infinite number", () => {
+    const spyWarn = jest.spyOn(console, "warn");
+    renderer.create(<ByteConverter>{-Infinity}</ByteConverter>);
+    renderer.create(<ByteConverter>{Infinity}</ByteConverter>);
+    expect(spyWarn).toHaveBeenCalledTimes(5);
+  });
+
+  it("should warn with a non integer number", () => {
+    const spyWarn = jest.spyOn(console, "warn");
+    renderer.create(<ByteConverter>{10.1}</ByteConverter>);
+    expect(spyWarn).toHaveBeenCalledTimes(6);
+  });
+
+  it("should warn with a negative number", () => {
+    const spyWarn = jest.spyOn(console, "warn");
+    renderer.create(<ByteConverter>{-10}</ByteConverter>);
+    expect(spyWarn).toHaveBeenCalledTimes(7);
+  });
+
+  it("should warn when not a number", () => {
+    const spyWarn = jest.spyOn(console, "warn");
+    renderer.create(<ByteConverter>blah</ByteConverter>);
+    expect(spyWarn).toHaveBeenCalledTimes(11);
+  });
+
+  it("should suppress warnings when `hideWarnings` is present", () => {
+    const spyWarn = jest.spyOn(console, "warn");
+    renderer.create(<ByteConverter hideWarnings>{-Infinity}</ByteConverter>);
+    renderer.create(<ByteConverter hideWarnings>{Infinity}</ByteConverter>);
+    renderer.create(<ByteConverter hideWarnings>{10.1}</ByteConverter>);
+    renderer.create(<ByteConverter hideWarnings>{-10}</ByteConverter>);
+    expect(spyWarn).not.toHaveBeenCalledTimes(12);
+  });
 });
