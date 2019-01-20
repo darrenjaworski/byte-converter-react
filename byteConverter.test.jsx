@@ -105,25 +105,25 @@ describe("ByteConverter", () => {
     const spyWarn = jest.spyOn(console, "warn");
     renderer.create(<ByteConverter>{-Infinity}</ByteConverter>);
     renderer.create(<ByteConverter>{Infinity}</ByteConverter>);
-    expect(spyWarn).toHaveBeenCalledTimes(7);
+    expect(spyWarn).toHaveBeenCalledTimes(5);
   });
 
   it("should warn with a non integer number", () => {
     const spyWarn = jest.spyOn(console, "warn");
     renderer.create(<ByteConverter>{10.1}</ByteConverter>);
-    expect(spyWarn).toHaveBeenCalledTimes(9);
+    expect(spyWarn).toHaveBeenCalledTimes(6);
   });
 
   it("should warn with a negative number", () => {
     const spyWarn = jest.spyOn(console, "warn");
     renderer.create(<ByteConverter>{-10}</ByteConverter>);
-    expect(spyWarn).toHaveBeenCalledTimes(11);
+    expect(spyWarn).toHaveBeenCalledTimes(7);
   });
 
   it("should warn when not a number", () => {
     const spyWarn = jest.spyOn(console, "warn");
     renderer.create(<ByteConverter>blah</ByteConverter>);
-    expect(spyWarn).toHaveBeenCalledTimes(14);
+    expect(spyWarn).toHaveBeenCalledTimes(11);
   });
 
   it("should suppress warnings when `hideWarnings` is present", () => {
