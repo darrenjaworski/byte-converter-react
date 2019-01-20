@@ -10,7 +10,7 @@ $npm install byte-converter-react
 
 Available props:
 
-- children, is required and must be a positive, finite, integer.
+- `children`, is required and must be a positive, finite, integer, string or number.
 - `hideWarnings`, boolean to turn on/off warnings. `false` by default.
 - `suffix`, boolean to turn on/off suffix. AKA unit written after the converted number. `false` by default.
 - `inUnit`, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. `B` for bytes by default.
@@ -28,9 +28,9 @@ import ByteConverter from "byte-converter-react";
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <ByteConverter>1073741824</ByteConverter>
-      </div>
+      <ByteConverter suffix inUnit="KB" outUnit="MB">
+        1024
+      </ByteConverter>
     );
   }
 }
