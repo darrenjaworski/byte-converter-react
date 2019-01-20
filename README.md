@@ -5,7 +5,7 @@ A small React component to convert between data sizes.
 ## usage
 
 ```bash
-$npm install byte-converter-react
+$ npm install byte-converter-react
 ```
 
 Available props:
