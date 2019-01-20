@@ -4,7 +4,7 @@
   "description": "A small React component to convert between data sizes.",
   "main": "./build/byteConverter.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "clean": "rm -rf build",
     "prebuild": "npm run test",
     "build": "webpack",
