@@ -36,6 +36,7 @@ const ByteConverter = props => {
   const isInteger = Number.isInteger(kiddo);
   const isFinite = Number.isFinite(kiddo);
   const isPositive = kiddo > 0;
+  const isNotANumber = Number.isNaN(kiddo);
 
   if (!hideWarnings) {
     if (!isInteger) {
@@ -43,11 +44,18 @@ const ByteConverter = props => {
     }
 
     if (!isFinite) {
-      console.warn("ByteConverter must recieve a finite integer as a child"); // eslint-disable-line no-console
+      console.warn("ByteConverter must recieve a finite integer as a child."); // eslint-disable-line no-console
     }
 
     if (!isPositive) {
-      console.warn("ByteConverter must recieve a positive integer as a child"); // eslint-disable-line no-console
+      console.warn("ByteConverter must recieve a positive integer as a child."); // eslint-disable-line no-console
+    }
+
+    if (!isNotANumber) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        "ByteConverter must recieve a number or valid number as a string as a child"
+      );
     }
   }
 
