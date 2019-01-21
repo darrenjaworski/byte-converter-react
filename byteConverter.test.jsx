@@ -20,7 +20,7 @@ describe("ByteConverter", () => {
       )
       .toJSON();
 
-    const PBvalue = renderer
+    const GBvalue = renderer
       .create(
         <ByteConverter useSI inUnit="MB" outUnit="GB">
           1000
@@ -29,7 +29,7 @@ describe("ByteConverter", () => {
       .toJSON();
 
     expect(MBvalue).toBe("1");
-    expect(PBvalue).toBe("1");
+    expect(GBvalue).toBe("1");
   });
 
   // permutations
