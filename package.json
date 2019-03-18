@@ -1,6 +1,6 @@
 {
   "name": "byte-converter-react",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A small React component to convert between data sizes.",
   "main": "./build/byteConverter.js",
   "scripts": {
