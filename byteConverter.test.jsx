@@ -5,9 +5,7 @@ import ByteConverter from "./index";
 
 describe("ByteConverter", () => {
   it("renders without crashing", () => {
-    const tree = renderer
-      .create(<ByteConverter>{1024}</ByteConverter>)
-      .toJSON();
+    const tree = renderer.create(<ByteConverter>1024</ByteConverter>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -33,10 +31,10 @@ describe("ByteConverter", () => {
   });
 
   // permutations
-  const units = ["B", "KB", "MB", "GB", "TB", "PB"];
+  const units = ["b", "B", "KB", "MB", "GB", "TB", "PB"];
 
-  units.forEach(InUnit => {
-    units.forEach(OutUnit => {
+  units.forEach((InUnit) => {
+    units.forEach((OutUnit) => {
       it(`inUnit ${InUnit}, outUnit ${OutUnit} matches snapshot`, () => {
         const tree = renderer
           .create(
@@ -62,17 +60,18 @@ describe("ByteConverter", () => {
   });
 
   const unitSuffixes = {
+    b: "bit",
     B: "byte",
     KB: "kilobyte",
     MB: "megabyte",
     GB: "gigabyte",
     TB: "terabyte",
-    PB: "petabyte"
+    PB: "petabyte",
   };
 
   const suffixes = Object.keys(unitSuffixes);
 
-  suffixes.forEach(suffix => {
+  suffixes.forEach((suffix) => {
     const suffixString = unitSuffixes[suffix];
     it(`should add the suffix ${suffixString}s`, () => {
       const result = renderer

@@ -3,13 +3,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const units = {
-  b: { conversionFactor: 0, suffix: "bit" },
   B: { conversionFactor: 0, suffix: "byte" },
   KB: { conversionFactor: 1, suffix: "kilobyte" },
   MB: { conversionFactor: 2, suffix: "megabyte" },
   GB: { conversionFactor: 3, suffix: "gigabyte" },
   TB: { conversionFactor: 4, suffix: "terabyte" },
   PB: { conversionFactor: 5, suffix: "petabyte" },
+  b: { conversionFactor: 0, suffix: "bit" },
 };
 
 const ByteConverter = (props) => {
@@ -32,11 +32,11 @@ const ByteConverter = (props) => {
 
   if (!hideWarnings) {
     if (!Object.prototype.hasOwnProperty.call(units, inUnit)) {
-      console.log("ByteConvert has recieved invalid inUnit prop."); // eslint-disable-line no-console
+      console.warn("ByteConvert has recieved invalid inUnit prop."); // eslint-disable-line no-console
     }
 
     if (!Object.prototype.hasOwnProperty.call(units, inUnit)) {
-      console.log("ByteConvert has recieved invalid inUnit prop."); // eslint-disable-line no-console
+      console.warn("ByteConvert has recieved invalid inUnit prop."); // eslint-disable-line no-console
     }
 
     if (!kiddoIsInteger) {
