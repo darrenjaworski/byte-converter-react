@@ -8,10 +8,11 @@ const units = {
   MB: { conversionFactor: 2, suffix: "megabyte" },
   GB: { conversionFactor: 3, suffix: "gigabyte" },
   TB: { conversionFactor: 4, suffix: "terabyte" },
-  PB: { conversionFactor: 5, suffix: "petabyte" }
+  PB: { conversionFactor: 5, suffix: "petabyte" },
+  b: { conversionFactor: 0, suffix: "bit" },
 };
 
-const ByteConverter = props => {
+const ByteConverter = (props) => {
   const {
     children,
     hideWarnings,
@@ -19,10 +20,10 @@ const ByteConverter = props => {
     suffix,
     addCommas,
     inUnit,
-    outUnit
+    outUnit,
   } = props;
 
-  const kiddo = Number(children);
+  let kiddo = Number(children);
 
   const kiddoIsInteger = Number.isInteger(kiddo);
   const kiddoIsFinite = Number.isFinite(kiddo);
@@ -30,6 +31,14 @@ const ByteConverter = props => {
   const kiddoIsNotANumber = Number.isNaN(kiddo);
 
   if (!hideWarnings) {
+    if (!Object.prototype.hasOwnProperty.call(units, inUnit)) {
+      console.warn("ByteConvert has recieved invalid inUnit prop."); // eslint-disable-line no-console
+    }
+
+    if (!Object.prototype.hasOwnProperty.call(units, inUnit)) {
+      console.warn("ByteConvert has recieved invalid inUnit prop."); // eslint-disable-line no-console
+    }
+
     if (!kiddoIsInteger) {
       console.warn("ByteConverter must recieve an integer as a child."); // eslint-disable-line no-console
     }
@@ -57,7 +66,15 @@ const ByteConverter = props => {
     ? 1000 ** units[outUnit].conversionFactor
     : 1024 ** units[outUnit].conversionFactor;
 
+  if (inUnit === "b") {
+    kiddo /= 8;
+  }
+
   let conversion = (kiddo * InConversion) / OutConversion;
+
+  if (outUnit === "b") {
+    conversion *= 8;
+  }
 
   if (addCommas) {
     conversion = conversion.toLocaleString();
@@ -83,7 +100,7 @@ ByteConverter.propTypes = {
   suffix: PropTypes.bool,
   addCommas: PropTypes.bool,
   inUnit: PropTypes.oneOf(Object.keys(units)),
-  outUnit: PropTypes.oneOf(Object.keys(units))
+  outUnit: PropTypes.oneOf(Object.keys(units)),
 };
 
 ByteConverter.defaultProps = {
@@ -92,7 +109,7 @@ ByteConverter.defaultProps = {
   suffix: false,
   addCommas: false,
   inUnit: Object.keys(units)[0],
-  outUnit: Object.keys(units)[2]
+  outUnit: Object.keys(units)[2],
 };
 
 export default ByteConverter;

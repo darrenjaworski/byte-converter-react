@@ -13,8 +13,8 @@ Available props:
 - `children`, is required and must be a positive, finite, integer, string or number.
 - `hideWarnings`, boolean to turn on/off warnings. `false` by default.
 - `suffix`, boolean to turn on/off suffix. AKA unit written after the converted number. `false` by default.
-- `inUnit`, one of ["B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. `B` for bytes by default.
-- `outUnit`, one of ["B", "KB", "MB", "GB", "TB", "PB"]. `MB` for megabytes by default.
+- `inUnit`, one of ["b" (bit), "B" (byte), "KB" (kilobyte), "MB" (megabyte), "GB" (gigabyte), "TB" (terabyte), "PB" (petabyte)]. `B` for bytes by default.
+- `outUnit`, one of ["b", "B", "KB", "MB", "GB", "TB", "PB"]. `MB` for megabytes by default.
 - `addCommas`, will convert to locale string, 1,000,000 etc. `false` by default.
 - `useSI`, will use decimal notation instead of binary, `false` by default.
 
@@ -37,7 +37,3 @@ class App extends React.Component {
 
 export default App;
 ```
-
-## upcoming features
-
-- support for bits
