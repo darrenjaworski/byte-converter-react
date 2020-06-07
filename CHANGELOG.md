@@ -9,11 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- bits
-
 ### Changed
-
-- updated docs
 
 ### Deprecated
 
@@ -22,6 +18,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 ### Security
+
+## [1.1.0] 2020-06-06
+
+### Added
+
+- bits
+
+### Changed
+
+- updated docs
 
 ## [1.0.5] - 2019-01-19
 
