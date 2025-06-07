@@ -2,26 +2,11 @@
   "name": "byte-converter-react",
   "version": "1.1.0",
   "description": "A small React component to convert between data sizes.",
-  "main": "./build/byteConverter.js",
+  "main": "./dist/byteConverter.js",
   "scripts": {
-    "test": "jest --coverage",
-    "clean": "rm -rf build",
-    "prebuild": "npm run test",
-    "build": "webpack",
-    "prepublishOnly": "npm run build",
-    "gamut": "npm run clean && npm install && npm run build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "prettier"
-    ],
-    "plugins": [
-      "jest"
-    ],
-    "env": {
-      "jest/globals": true
-    }
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rm -rf dist"
   },
   "files": [
     "build"
@@ -41,28 +26,25 @@
   },
   "homepage": "https://github.com/darrenjaworski/byte-converter-react#readme",
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "prop-types": "^15.6.2"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-0",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.4",
-    "eslint": "^5.11.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^22.1.2",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "jest": "^23.6.0",
-    "react-test-renderer": "^16.7.0",
-    "regenerator-runtime": "^0.13.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.11",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "jest-environment-jsdom": "^30.0.0-beta.3",
+    "ts-jest": "^29.3.4",
+    "typescript": "^5.8.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.ts"
+    ],
+    "testEnvironment": "jsdom"
   }
 }
