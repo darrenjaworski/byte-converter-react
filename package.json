@@ -4,9 +4,10 @@
   "description": "A small React component to convert between data sizes.",
   "main": "./dist/byteConverter.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run minify",
+    "minify": "terser dist/byteConverter.js --compress --mangle --output dist/byteConverter.js",
     "test": "jest",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist node_modules"
   },
   "files": [
     "build"
@@ -38,6 +39,7 @@
     "@types/react-dom": "^19.1.6",
     "byte-converter-react": "1.1.0",
     "jest-environment-jsdom": "^30.0.0-beta.3",
+    "terser": "^5.41.0",
     "ts-jest": "^29.3.4",
     "typescript": "^5.8.3"
   },
