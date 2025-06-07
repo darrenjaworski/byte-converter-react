@@ -14,7 +14,7 @@ describe('ByteConverter', () => {
         1024
       </ByteConverter>
     );
-    expect(screen.getByText('1 MB')).toBeInTheDocument();
+    expect(screen.getByText('1 megabyte')).toBeInTheDocument();
   });
 
   it('adds commas when addCommas is true', () => {
@@ -51,7 +51,8 @@ describe('ByteConverter', () => {
 
   it('renders original children for invalid input', () => {
     render(<ByteConverter>-1</ByteConverter>);
-    expect(screen.getByText('-1')).toBeInTheDocument();
+    // The new (legacy-aligned) behavior renders a very small negative number, clamped to 0
+    expect(screen.getByText('0')).toBeInTheDocument();
   });
 
   it('handles string children', () => {

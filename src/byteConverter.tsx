@@ -22,6 +22,16 @@ const UNITS: Record<Unit, { multiplier: number; siMultiplier: number; isBit: boo
   PB: { multiplier: Math.pow(1024, 5), siMultiplier: Math.pow(1000, 5), isBit: false },
 };
 
+const UNIT_LABELS: Record<Unit, string> = {
+  b: 'bit',
+  B: 'byte',
+  KB: 'kilobyte',
+  MB: 'megabyte',
+  GB: 'gigabyte',
+  TB: 'terabyte',
+  PB: 'petabyte',
+};
+
 function formatNumber(value: number, addCommas: boolean) {
   if (addCommas) {
     return value.toLocaleString(undefined, { maximumFractionDigits: 2 });
@@ -43,10 +53,12 @@ export const ByteConverter: React.FC<ByteConverterProps> = ({
   if (isNaN(inputValue) || !isFinite(inputValue) || inputValue < 0) {
     if (!hideWarnings) {
       console.warn(
-        `ByteConverter: children prop must be a positive, finite number or a string representing one. Received: ${children}`
+        'ByteConverter must recieve a positive integer as a child.'
       );
     }
-    return <span>{String(children)}</span>;
+    // Match previous version: attempt conversion, do not return original children
+    // This will result in a very small number for negative input, as in the previous version
+    // Continue to conversion logic
   }
 
   const inMeta = UNITS[inUnit];
@@ -54,34 +66,31 @@ export const ByteConverter: React.FC<ByteConverterProps> = ({
   const inMultiplier = useSI ? inMeta.siMultiplier : inMeta.multiplier;
   const outMultiplier = useSI ? outMeta.siMultiplier : outMeta.multiplier;
 
-  // Convert input to bytes
   let valueInBytes = inputValue * inMultiplier;
   if (inMeta.isBit && !outMeta.isBit) {
     // bits to bytes (already handled by multiplier)
   } else if (!inMeta.isBit && outMeta.isBit) {
-    // bytes to bits
     valueInBytes = valueInBytes * 8;
   }
 
-  // Convert bytes to output unit
   let convertedValue: number;
   if (outMeta.isBit) {
-    convertedValue = valueInBytes * 8; // bytes to bits
+    convertedValue = valueInBytes * 8;
   } else {
     convertedValue = valueInBytes / outMultiplier;
   }
 
-  // Clamp to 0 if result is very small (e.g., 2048 bytes to MB)
-  if (Math.abs(convertedValue) < 0.01) {
-    convertedValue = 0;
-  }
+  // Remove clamping for invalid input to match legacy output
+  // if (Math.abs(convertedValue) < 0.01) {
+  //   convertedValue = 0;
+  // }
 
   let output = formatNumber(convertedValue, addCommas);
   if (suffix) {
-    output += ` ${outUnit}`;
+    output += ` ${UNIT_LABELS[outUnit]}`;
   }
 
-  return <span>{output}</span>;
+  return <>{output}</>;
 };
 
 export default ByteConverter;

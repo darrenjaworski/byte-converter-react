@@ -36,6 +36,7 @@
     "@types/jest": "^29.5.11",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
+    "byte-converter-react": "1.1.0",
     "jest-environment-jsdom": "^30.0.0-beta.3",
     "ts-jest": "^29.3.4",
     "typescript": "^5.8.3"
